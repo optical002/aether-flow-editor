@@ -1,1 +1,0 @@
-addSbtPlugin("org.methvin" % "sbt-javafx" % "0.0.7")
