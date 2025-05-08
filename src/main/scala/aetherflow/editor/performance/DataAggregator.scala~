@@ -1,13 +1,13 @@
 package aetherflow.editor.performance
 
-import scalafx.beans.property.ObjectProperty
+//import scalafx.beans.property.ObjectProperty
 import aetherflow.engine.*
 import zio.*
 
 class DataAggregator {
   import performance.Data.DataAggregator.*
   
-  val windowState = ObjectProperty[Iterable[Entry]](Iterable.empty[Entry])
+//  val windowState = ObjectProperty[Iterable[Entry]](Iterable.empty[Entry])
 
   def aggregate(newEntries: Iterable[Entry]): Unit = {
     windowState.value = {
@@ -16,7 +16,7 @@ class DataAggregator {
         case _ => false
       }
       val distinctConstants = constants
-        .asInstanceOf[Iterable[ConstantEntry]]
+        .asInstanceOf[Iterable[Entry.Constant]]
         .groupBy(_.header.asMetricName)
         .flatMap { case (_, group) => group.lastOption }
       distinctConstants ++ others
